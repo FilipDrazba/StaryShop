@@ -7,16 +7,17 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 @Component
-public class MainView extends JFrame {
+public class MainView {
     protected JButton b1, b2;
     private static final String ERROR_TITLE = "Error";
-
+    private JFrame jFrame;
     public MainView() {
-        super("Szop");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(300, 100);
-        setLocation(50, 50);
-        setLayout(new GridLayout(2, 6));
+//        super("Szop");
+        jFrame = new JFrame("Szop");
+        jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jFrame.setSize(300, 100);
+        jFrame.setLocation(500, 300);
+        jFrame.setLayout(new GridLayout(2, 6));
 
         b1 = new JButton("Klient");
         b1.setVerticalTextPosition(AbstractButton.CENTER);
@@ -35,13 +36,13 @@ public class MainView extends JFrame {
         b1.addActionListener(e -> {
 
             b1.addActionListener(e1 -> {
-                setVisible(false);
+                jFrame.setVisible(false);
                 new KlientView();
             });
         });
 
-        add(b1);
-        add(b2);
-        setVisible(true);
+        jFrame.add(b1);
+        jFrame.add(b2);
+        jFrame.setVisible(true);
     }
 }
